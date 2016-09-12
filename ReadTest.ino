@@ -1,4 +1,5 @@
 #include <Wire.h>
+#include <TimeLib.h>
 #include <DS1307RTC.h>
 
 void setup() {
@@ -6,10 +7,10 @@ void setup() {
   while (!Serial) ; // wait for serial
   delay(200);
   Serial.println("DS1307RTC Read Test");
-  Serial.println("-------------------");
 }
 
 void loop() {
+  Serial.println("+++++++++++++++++++++++++++++ begin");
   tmElements_t tm;
 
   if (RTC.read(tm)) {
@@ -38,6 +39,7 @@ void loop() {
     delay(9000);
   }
   delay(1000);
+  Serial.println("+++++++++++++++++++++++++++++ end");
 }
 
 void print2digits(int number) {
